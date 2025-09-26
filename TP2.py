@@ -11,52 +11,42 @@ import random
 
 game_begin = True
 essaies = 0
-#result = random.randint(0, 100)
 
-#input("Choissisez la difficulté du jeu: Facile, Moyenne, Difficile ( Ecrivez le premier lettre en MAJUSCULE")
-
-
-#if input() == "Facile":
-   # random.randint(0, 100)
-#elif input() == "Moyenne":
-    #random.randint(0, 1000)
-#elif input() == "Difficile":
-   # random.randint(0, 10000)
-
-def gener(x,y):
-    answer = random.randint(x, y)
-    return answer
+first = 0
+last = 100
 
 
-first = int(input("first number"))
-last = int(input("last number"))
+def generate():
+    global first
+    global last
+    first = int(input("Choisissez votre premier nombre:"))
+    last = int(input("Choisissez votre dernier nombre: "))
 
 
-result = gener(first, last)
+generate()
+
+result = random.randint(first, last)
 
 
 while game_begin:
 
     essaies += 1
 
-    x = int(input("Choisissez un nombre de 0 a 1000:"))
+    x = int(input(f"J'ai choisi un numéro entre les nombres de votre choix. Choisissez un nombre de {first} à {last}:"))
 
     if x > result:
-        print(f"{x} est trop grande. essayez une autre fois:")
+        print(f"{x} est trop grande. Essayez une autre fois:")
 
     elif x < result:
         print(f"{x} est trop petite. Essayez une autre fois:")
 
     else:
         print(f"Bravo! Vous avez eu la bonne réponse en {essaies} essaies.")
-        quitter = input("Voulez-vous continuer? (o/n)")
+        continuer = input("Voulez-vous continuer? (o/n)")
 
-        if quitter == "o":
-            print("ok")
-            #result = random.randint(0, 100)
-            first = int(input("first number"))
-            last = int(input("last number"))
-
+        if continuer == "o":
+            print("D'accord.")
+            generate()
             result = random.randint(first, last)
             essaies = 0
 
@@ -64,4 +54,4 @@ while game_begin:
             game_begin = False
 
 
-print("ok bye")
+print("Au revoir!")
