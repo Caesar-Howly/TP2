@@ -15,10 +15,10 @@ essaies = 0
 first = 0
 last = 100
 
+
 def generate():
     global first
     global last
-
     first = int(input("Choisissez votre premier nombre:"))
     last = int(input("Choisissez votre dernier nombre: "))
 
@@ -26,7 +26,6 @@ def generate():
 generate()
 
 result = random.randint(first, last)
-
 
 
 while game_begin:
