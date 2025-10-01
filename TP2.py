@@ -40,13 +40,13 @@ while game_begin:
 
     essaies += 1
 
-    x = int(input())
+    response = int(input())
 
-    if x > result:
-        print(f"{x} est trop grande. Essayez une autre fois:")
+    if response > result:
+        print(f"{response} est trop grande. Essayez une autre fois:")
 
-    elif x < result:
-        print(f"{x} est trop petite. Essayez une autre fois:")
+    elif response < result:
+        print(f"{response} est trop petite. Essayez une autre fois:")
 
     else:
         print(f"Bravo! Vous avez eu la bonne réponse en {essaies} essaies.")
