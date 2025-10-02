@@ -13,27 +13,30 @@ import random
 game_begin = True
 essaies = 0
 
-first = 0
-last = 100
+lower_bound = 0
+upper_bound = 100
 
 
-def generate():
-    global first
-    global last
-    difficulty = str(input("Voulez-vous garder la difficulté défaute? o/n"))
+def generate(min_value, max_value):
+    global lower_bound
+    global upper_bound
+    choix_difficulty = input("Voulez-vous garder la difficulté défaute? o/n")
 
-    if difficulty == "o":
-        print(f"J'ai choisi un numéro entre les nombres de votre choix. Choisissez un nombre de {first} à {last}:")
+    if choix_difficulty == "o":
+        lower_bound = min_value
+        upper_bound = max_value
+        print(f"J'ai choisi un numéro entre les nombres de votre choix.")
+        print(f"Choisissez un nombre de {lower_bound} à {upper_bound}:")
     else:
-        first = int(input("Choisissez votre premier nombre:"))
-        last = int(input("Choisissez votre dernier nombre: "))
-        print(f"J'ai choisi un numéro entre les nombres de votre choix. Choisissez un nombre de {first} à {last}:")
+        lower_bound = int(input("Choisissez votre premier nombre:"))
+        upper_bound = int(input("Choisissez votre dernier nombre: "))
+        print(f"J'ai choisi un numéro entre les nombres de votre choix.")
+        print(f"Choisissez un nombre de {lower_bound} à {upper_bound}:")
+
+generate(0, 100)
 
 
-generate()
-
-
-result = random.randint(first, last)
+result = random.randint(lower_bound, upper_bound)
 
 
 while game_begin:
@@ -54,8 +57,8 @@ while game_begin:
 
         if continuer == "o":
             print("D'accord.")
-            generate()
-            result = random.randint(first, last)
+            generate(0, 100)
+            result = random.randint(lower_bound, upper_bound)
             essaies = 0
 
         else:
